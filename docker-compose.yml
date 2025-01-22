@@ -1,0 +1,16 @@
+services:
+  tomcat:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SNOWFLAKE_USER=${SNOWFLAKE_USER}
+      - SNOWFLAKE_RSA_KEY=${SNOWFLAKE_RSA_KEY}
+      - SNOWFLAKE_RSA_KEY_PASSWORD=${SNOWFLAKE_RSA_KEY_PASSWORD}
+      - SNOWFLAKE_PASSWORD=${SNOWFLAKE_PASSWORD}
+      - SNOWFLAKE_HOSTNAME=${SNOWFLAKE_HOSTNAME}
+      - SNOWFLAKE_DATABASE=DWH
+      - SNOWFLAKE_SCHEMA=Public
+      - SNOWFLAKE_WAREHOUSE=REPORTS_WH
