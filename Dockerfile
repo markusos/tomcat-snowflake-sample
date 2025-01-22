@@ -9,12 +9,14 @@ COPY src ./src
 # Build the WAR file
 RUN mvn package -X
 
-FROM tomcat:9.0-jdk11-slim
+FROM tomcat:9.0-jdk11
+
+RUN apt-get update && apt-get install -y wget
 
 COPY --from=build /app/target/*.war /usr/local/tomcat/webapps/
 
-# Install the Snowflake JDBC driver
-COPY snowflake-jdbc-3.21.0.jar /usr/local/tomcat/lib/
+# Download the Snowflake JDBC driver
+RUN wget -O /usr/local/tomcat/lib/snowflake-jdbc-3.21.0.jar https://repo1.maven.org/maven2/net/snowflake/snowflake-jdbc/3.21.0/snowflake-jdbc-3.21.0.jar
 
 # Copy the startup script
 COPY startup.sh /usr/local/tomcat/bin/

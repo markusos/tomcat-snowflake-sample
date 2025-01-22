@@ -46,6 +46,7 @@ EOF
 
 touch /usr/local/tomcat/logs/catalina.out
 
+# https://docs.snowflake.com/en/developer-guide/jdbc/jdbc-configure#key-decryption-errors
 export CATALINA_OPTS="$CATALINA_OPTS -Dnet.snowflake.jdbc.enableBouncyCastle=true"
 
 # Start Tomcat
