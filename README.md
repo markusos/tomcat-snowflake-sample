@@ -4,6 +4,8 @@ This is a sample application to show how to connect to Snowflake from a Java web
 
 Snowflake will block single factor authentication for Services by November 2025: https://www.snowflake.com/en/blog/blocking-single-factor-password-authentification/
 
+I've also written about these changes on https://www.ostberg.dev/projects/2025/01/25/snowflake-key-pair-authentication.html
+
 ## Prerequisites
 
 - Docker
